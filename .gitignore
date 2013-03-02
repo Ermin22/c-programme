@@ -1,13 +1,34 @@
-# http://www.gnu.org/software/automake
+#include <stdio.h>
+#include <stdlib.h>
 
-Makefile.in
+char* cgi1(char* txt, int* istgleich, int*vor_zeichen, int* nach_zeichen);
 
-# http://www.gnu.org/software/autoconf
+int main(void) {
 
-/autom4te.cache
-/aclocal.m4
-/compile
-/configure
-/depcomp
-/install-sh
-/missing
+  char s[128];
+	int zeichen_vor, zeichen_nach;
+	char *istgleich;
+	printf("Die Eingabe: nachname=vorname");
+
+	fgets(s, 128, stdin);
+
+	cgi1(s, &zeichen_nach, &zeichen_vor, &istgleich); // Adressen der beiden Variablen mitgeben
+
+	printf("Zeichen vor dem = %i\n", zeichen_vor);
+	printf("Zeichen nach dem = %i\n", zeichen_nach);
+
+	printf("\nAdresse von =%p (Werte= %c)\n\n", istgleich, *istgleich);
+
+	return 0;
+}
+char* cgi1(char* txt, int* istgleich ,int* vor_zeichen, int* nach_zeichen){
+	int i;
+
+	for(i=0; txt[i] != '\0';i++){
+		if(*(txt+i) == '='){
+			*(txt+i)=*istgleich;
+			*vor_zeichen=i;
+		}
+
+	}
+}
