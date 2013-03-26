@@ -29,7 +29,7 @@ Complex divC(Complex a,Complex b){
 	return result;
 }
 Complex cconj(Complex a){
-	Complex result ={(a.real,a.imag*-1)};
+	Complex result ={(a.real),(a.imag*-1)};
 	return result;
 }
 Complex real(Complex a){
@@ -37,10 +37,11 @@ Complex real(Complex a){
 	return result;
 }
 Complex imag(Complex a){
-	Complex result ={(a.imag)};
+	Complex result ={(a.real*0),(a.imag)};
 	return result;
 }
 Complex betrag(Complex a){
-	Complex result ={((sqrt(pow(a.real,2))+(pow(a.imag,2))))};
+	Complex result ={(sqrt(pow(a.real,2))+(pow(a.imag,2)))};
 	return result;
 }
+
